@@ -1,0 +1,33 @@
+-- 03_model_registry.sql
+-- Simple model registry table + sample registration
+
+USE DATABASE ATLAS_PLATFORM_DB;
+USE SCHEMA ATLAS_MODEL_REGISTRY;
+
+CREATE OR REPLACE TABLE MODEL_REGISTRY (
+    MODEL_NAME         STRING,
+    MODEL_VERSION      STRING,
+    STAGE              STRING,
+    FRAMEWORK          STRING,
+    TRAINING_DATA_REF  STRING,
+    METRICS            VARIANT,
+    CREATED_AT         TIMESTAMP_NTZ,
+    CREATED_BY         STRING
+);
+
+INSERT INTO MODEL_REGISTRY (
+  MODEL_NAME, MODEL_VERSION, STAGE, FRAMEWORK,
+  TRAINING_DATA_REF, METRICS, CREATED_AT, CREATED_BY
+)
+SELECT
+  'fraud_detection_model',
+  'v1',
+  'PROD',
+  'xgboost',
+  'ATLAS_FEATURE_STORE.CUSTOMER_TX_FEATURES:2025-11-01',
+  OBJECT_CONSTRUCT('auc', 0.94, 'f1', 0.88),
+  CURRENT_TIMESTAMP(),
+  'matt.reinsch';
+
+-- Preview
+SELECT * FROM MODEL_REGISTRY;
