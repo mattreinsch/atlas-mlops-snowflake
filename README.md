@@ -4,7 +4,9 @@ Atlas is an opinionated, Snowflake-native MLOps platform that demonstrates how t
 
 This repo backs the Medium article:
 
-> **“Atlas: How I Built a Full-Stack Snowflake MLOps Platform (Feature Store, Model Registry, Drift & Retraining in Snowflake)”**  
+> **“Atlas: How I Built a Full-Stack Snowflake MLOps Platform (Feature Store, Model Registry, Drift & Retraining in Snowflake)”**
+> https://medium.com/@mattsreinsch/atlas-how-i-built-a-full-stack-snowflake-mlops-platform-9e5509ad8c79
+> 
 > by Matt Reinsch
 
 ---
